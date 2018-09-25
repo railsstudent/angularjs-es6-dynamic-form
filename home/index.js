@@ -1,6 +1,6 @@
 import angular from "angular";
 
-import "./style.css";
+import "./style.scss";
 
 // Create the module where our functionality can attach to
 const homeModule = angular.module("home", []);

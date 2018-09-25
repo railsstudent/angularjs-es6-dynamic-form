@@ -1,4 +1,4 @@
-import img from "./formImage.png";
+import img from "../images/formImage.png";
 
 class HomeCtrl {
   constructor() {
