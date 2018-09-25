@@ -1,7 +1,6 @@
 const webpackHtmlPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const webpackMerge = require("webpack-merge");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
 const modeConfig = env => require(`./build-utils/webpack.${env}`)(env);
 
 module.exports = ({ mode }) => {
@@ -36,13 +35,7 @@ module.exports = ({ mode }) => {
         new webpackHtmlPlugin({
           template: "./index.html"
         }),
-        new webpack.ProgressPlugin(),
-        new CopyWebpackPlugin([
-          {
-            from: "images/webpack-logo.png",
-            to: "images/webpack-logo.png"
-          }
-        ])
+        new webpack.ProgressPlugin()
       ]
     },
     modeConfig(mode)

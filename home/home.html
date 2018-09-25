@@ -1,5 +1,7 @@
 <div class="image-container">
     <img ng-src="{{ vm.img }}" class="image-container-form">
-    <img src="./images/webpack-logo.png" class="image-container-webpack">
+    <!-- <img src="./images/webpack-logo.png" class="image-container-logo">
+    <img src="./images/angularjs.png" class="image-container-logo"> -->
+    <img ng-src="{{logo}}" ng-repeat="logo in vm.logos track by $index" class="image-container-logo">
 </div>
 <dynamic-form data="vm.data" name="'Angular 1.x Dynamic Form'"></dynamic-form>

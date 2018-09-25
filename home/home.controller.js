@@ -1,4 +1,6 @@
 import img from "../images/formImage.png";
+import imgAngular from "../images/angularjs.png";
+import imgWebpack from "../images/webpack-logo.png";
 
 class HomeCtrl {
   constructor() {
@@ -261,6 +263,7 @@ class HomeCtrl {
       }
     };
     this.img = img;
+    this.logos = [imgAngular, imgWebpack];
   }
 }
 
