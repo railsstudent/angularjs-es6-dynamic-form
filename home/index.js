@@ -1,16 +1,16 @@
-import angular from 'angular';
+import angular from "angular";
+
+import "./style.css";
 
 // Create the module where our functionality can attach to
-let homeModule = angular.module('home', []);
+const homeModule = angular.module("home", []);
 
 // Include our UI-Router config settings
-import HomeConfig from './home.config';
-homeModule.config(HomeConfig);
+import HomeConfig from "./home.config";
 
 // Controllers
-import HomeCtrl from './home.controller';
+import HomeCtrl from "./home.controller";
 
-homeModule
-  .controller('HomeCtrl', HomeCtrl);
+homeModule.config(HomeConfig).controller("HomeCtrl", HomeCtrl);
 
 export default homeModule;

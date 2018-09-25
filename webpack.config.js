@@ -1,32 +1,37 @@
 const webpackHtmlPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const webpackMerge = require("webpack-merge");
+const modeConfig = env => require(`./build-utils/webpack.${env}`)(env);
 
 module.exports = ({ mode }) => {
-  return {
-    mode,
-    entry: { app: "./app.js" },
-    output: {
-      filename: "bundle.js"
-    },
-    devServer: {
-      watchContentBase: true
-    },
-    module: {
-      rules: [
-        { test: /\.css$/, use: ["style-loader", "css-loader"] },
-        {
-          test: /^(png|gif|jpe?g)$/,
-          use: [{ loader: "url-loader", options: { limit: 8192 } }]
-        },
-        {
-          test: /\.html$/,
-          use: [{ loader: "html-loader" }]
-        }
+  return webpackMerge(
+    {
+      mode,
+      entry: { app: ["./app.js"] },
+      output: { filename: "bundle.js" },
+      module: {
+        rules: [
+          {
+            test: /\.(png|gif|jpe?g)$/,
+            use: [
+              {
+                loader: "url-loader",
+                options: {
+                  limit: 8192
+                }
+              }
+            ]
+          },
+          { test: /\.html$/, use: [{ loader: "html-loader" }] }
+        ]
+      },
+      plugins: [
+        new webpackHtmlPlugin({
+          template: "./index.html"
+        }),
+        new webpack.ProgressPlugin()
       ]
     },
-    plugins: [
-      new webpackHtmlPlugin({
-        template: "./index.html"
-      })
-    ]
-  };
+    modeConfig(mode)
+  );
 };

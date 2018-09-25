@@ -1,5 +1,7 @@
+import img from "./formImage.png";
+
 class HomeCtrl {
-  constructor($scope) {
+  constructor() {
     "ngInject";
 
     this.name = "AngularJS Dynamic Form";
@@ -27,6 +29,32 @@ class HomeCtrl {
           {
             type: "minlength",
             message: "Minimum length of Name field is 5."
+          }
+        ]
+      },
+      lname: {
+        label: "Last Name:",
+        name: "lname",
+        type: "text",
+        placeholder: "Enter your last name",
+        value: "",
+        required: true,
+        minlength: 5,
+        maxlength: 30,
+        showCharCount: true,
+        modelOptions: "{ debounce: 300 }",
+        errors: [
+          {
+            type: "required",
+            message: "Last Name field is required."
+          },
+          {
+            type: "maxlength",
+            message: "Maximum length of Last Name field is 30."
+          },
+          {
+            type: "minlength",
+            message: "Minimum length of Last Name field is 5."
           }
         ]
       },
@@ -232,6 +260,7 @@ class HomeCtrl {
         alt: ""
       }
     };
+    this.img = img;
   }
 }
 
