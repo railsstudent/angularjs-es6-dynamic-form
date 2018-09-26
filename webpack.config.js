@@ -26,6 +26,18 @@ module.exports = ({ mode }) => {
             ]
           },
           {
+            test: /\.(eot|svg|ttf|woff(2)?)$/,
+            use: [
+              {
+                loader: "file-loader",
+                options: {
+                  name: "[hash].[ext]",
+                  outputPath: "fonts"
+                }
+              }
+            ]
+          },
+          {
             test: /\.html$/,
             use: [{ loader: "html-loader", options: { attrs: ["img:src"] } }]
           }

@@ -6,8 +6,17 @@
     align-items: center;
     border-bottom: 1px solid #898989;
 
-    &-form {
-      margin: 10px;
+    $margin: 15px;
+    $margin2: 5px;
+    img {
+      margin: $margin2 $margin $margin2 0;
+    }
+
+    .fa-id-card-o {
+      margin-right: $margin;
+      &.fa-6x {
+        font-size: 6em;
+      }
     }
 
     &-logo {
