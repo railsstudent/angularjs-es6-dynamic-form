@@ -1,5 +1,4 @@
 import { get, chain } from "lodash-es";
-import $ from "jquery";
 
 class DynamicFormController {
   constructor($compile, $scope, DynamicFormService, $timeout) {
@@ -21,26 +20,29 @@ class DynamicFormController {
     };
 
     this.$onInit = () => {
-      const keys = Object.keys(this.data);
       this.initData();
       const formHtml = DynamicFormService.generateFormHtml(this.data);
-      const formEl = $("#formContainer");
+      const formEl = document.getElementById("formContainer");
       if (formEl) {
-        formEl.html(formHtml);
+        formEl.innerHTML = formHtml;
         $compile(formEl)($scope);
 
-        const $img = $("img");
-        $img.on("load", e => $timeout(() => (this.loading.image = false), 500));
-        $img.on("error", e =>
+        const $img = document.getElementsByTagName("img")[0];
+        $img.addEventListener("load", () =>
+          $timeout(() => (this.loading.image = false), 500)
+        );
+        $img.addEventListener("error", () =>
           $timeout(() => (this.loading.image = false), 500)
         );
         chain(this.data)
           .filter(f => get(f, "showCharCount", false) && get(f, "maxlength", 0))
           .forEach(f => {
-            const $charCount = $(`#${f.name}-char-count > span`);
-            const $input = $(`#${f.name}`);
-            $input.on("keyup", function(e) {
-              $charCount.html(this.value.length);
+            const $charCount = document
+              .getElementById(`${f.name}-char-count`)
+              .getElementsByTagName("span")[0];
+            const $input = document.getElementById(`${f.name}`);
+            $input.addEventListener("keyup", function(e) {
+              $charCount.innerHTML = this.value.length;
             });
           })
           .value();
