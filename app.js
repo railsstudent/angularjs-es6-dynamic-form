@@ -4,7 +4,8 @@ import "angular-messages";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "angular-ui-bootstrap/dist/ui-bootstrap-tpls";
-import "font-awesome/css/font-awesome.min.css";
+import "@fortawesome/fontawesome-free/css/solid.min.css";
+import "@fortawesome/fontawesome-free/css/fontawesome.min.css";
 
 // Import your app stylesheets
 import "./style.css";
