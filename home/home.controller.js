@@ -40,8 +40,8 @@ class HomeCtrl {
         placeholder: "Enter your last name",
         value: "",
         required: true,
-        minlength: 5,
-        maxlength: 30,
+        minlength: 2,
+        maxlength: 20,
         showCharCount: true,
         modelOptions: "{ debounce: 300 }",
         errors: [
@@ -51,11 +51,11 @@ class HomeCtrl {
           },
           {
             type: "maxlength",
-            message: "Maximum length of Last Name field is 30."
+            message: "Maximum length of Last Name field is 20."
           },
           {
             type: "minlength",
-            message: "Minimum length of Last Name field is 5."
+            message: "Minimum length of Last Name field is 2."
           }
         ]
       },
