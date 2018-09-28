@@ -88,4 +88,11 @@ class DynamicFormController {
   }
 }
 
+DynamicFormController.$inject = [
+  "$compile",
+  "$scope",
+  "DynamicFormService",
+  "$timeout"
+];
+
 export default DynamicFormController;

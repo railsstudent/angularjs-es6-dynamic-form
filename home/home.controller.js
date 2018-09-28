@@ -1,7 +1,7 @@
 import imgAngular from "../images/angularjs.png";
 import imgWebpack from "../images/webpack-logo.png";
 
-class HomeCtrl {
+class HomeController {
   constructor() {
     "ngInject";
 
@@ -264,5 +264,6 @@ class HomeCtrl {
     this.logos = [imgAngular, imgWebpack];
   }
 }
+HomeController.$inject = [];
 
-export default HomeCtrl;
+export default HomeController;

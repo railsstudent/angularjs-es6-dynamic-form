@@ -9,8 +9,8 @@ const homeModule = angular.module("home", []);
 import HomeConfig from "./home.config";
 
 // Controllers
-import HomeCtrl from "./home.controller";
+import HomeController from "./home.controller";
 
-homeModule.config(HomeConfig).controller("HomeCtrl", HomeCtrl);
+homeModule.config(HomeConfig).controller("HomeController", HomeController);
 
 export default homeModule;
