@@ -5,7 +5,7 @@ function HomeConfig($stateProvider) {
     url: "",
     controller: "HomeController",
     controllerAs: "vm",
-    templateUrl: require("home/home.html")
+    template: require("./home.html")
   });
 }
 HomeConfig.$inject = ["$stateProvider"];
