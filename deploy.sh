@@ -3,6 +3,9 @@
 # abort on errors
 set -e
 
+# delete dist/ folder
+rm -rf dist
+
 # build
 npm run prod
 
@@ -20,7 +23,6 @@ git commit -m 'deploy to github page'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-#git push -f git@github.com:railsstudent/angularjs-es6-dynamic-form.git master:gh-pages
-git subtree push --prefix dist origin gh-pages
+git push -f git@github.com:railsstudent/angularjs-es6-dynamic-form.git master:gh-pages
 
 cd -
