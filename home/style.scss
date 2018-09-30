@@ -12,10 +12,11 @@
       margin: $margin2 $margin $margin2 0;
     }
 
+    $iconColor: #399999;
     .fas {
       margin-right: $margin;
       &.fa-id-card {
-        color: #989898;
+        color: $iconColor;
       }
     }
 
