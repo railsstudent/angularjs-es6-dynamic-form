@@ -13,7 +13,6 @@
     "deploy": "./deploy.sh"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "5.3.1",
     "@uirouter/angularjs": "1.0.20",
     "angular": "1.7.2",
     "angular-messages": "1.7.2",
