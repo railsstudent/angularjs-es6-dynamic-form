@@ -7,7 +7,7 @@ set -e
 rm -rf dist
 
 # build
-npm run prod
+npm run prod:compress
 
 # navigate into the build output directory
 cd dist

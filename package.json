@@ -2,7 +2,7 @@
   "name": "angularjs-es6-dynamic-form",
   "description": "",
   "homepage": "https://stackblitz.com/edit/angularjs-es6-dynamic-form",
-  "license": "none",
+  "license": "MIT",
   "scripts": {
     "serve": "http-server ./dist -p 8888",
     "webpack": "webpack",
@@ -10,6 +10,8 @@
     "dev": "npm run webpack-dev-server -- --env.mode development --hot",
     "prod": "npm run webpack -- --env.mode production",
     "prod:analyze": "npm run prod -- --env.presets analyze",
+    "prod:compress": "npm run prod -- --env.presets compress",
+    "prod:compress-analyze": "npm run prod:compress -- --env.presets analyze",
     "deploy": "./deploy.sh"
   },
   "dependencies": {
@@ -22,6 +24,7 @@
   },
   "version": "1.0.0",
   "devDependencies": {
+    "compression-webpack-plugin": "2.0.0",
     "css-loader": "1.0.0",
     "file-loader": "2.0.0",
     "html-loader": "0.5.5",

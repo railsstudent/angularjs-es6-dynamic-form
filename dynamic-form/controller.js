@@ -1,4 +1,4 @@
-import { get, chain } from "lodash-es";
+import { get, filter, forEach } from "lodash-es";
 
 class DynamicFormController {
   constructor($compile, $scope, DynamicFormService, $timeout) {
@@ -34,18 +34,21 @@ class DynamicFormController {
         $img.addEventListener("error", () =>
           $timeout(() => (this.loading.image = false), 500)
         );
-        chain(this.data)
-          .filter(f => get(f, "showCharCount", false) && get(f, "maxlength", 0))
-          .forEach(f => {
-            const $charCount = document
-              .getElementById(`${f.name}-char-count`)
-              .getElementsByTagName("span")[0];
-            const $input = document.getElementById(`${f.name}`);
+        const showCharFields = filter(
+          this.data,
+          f => get(f, "showCharCount", false) && get(f, "maxlength", 0)
+        );
+        forEach(showCharFields, f => {
+          const $charCount = document
+            .getElementById(`${f.name}-char-count`)
+            .getElementsByTagName("span")[0];
+          const $input = document.getElementById(`${f.name}`);
+          if ($input && $charCount) {
             $input.addEventListener("keyup", function(e) {
               $charCount.innerHTML = this.value.length;
             });
-          })
-          .value();
+          }
+        });
       }
     };
   }
